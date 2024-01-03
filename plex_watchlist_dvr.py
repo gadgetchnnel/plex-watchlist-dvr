@@ -19,12 +19,12 @@ def in_library(library_movies, item):
     return duration_percent > 50
 
 
-class PlexDVRTest(movie_section):
+class PlexDVRTest():
     def __init__(self, baseurl, token):
         self._token = token
         self._plex = PlexServer(baseurl, token)
 
-    def watchlist_to_recordings(self):
+    def watchlist_to_recordings(self, movie_section):
         watchlist = []
         account = self._plex.myPlexAccount()
         watchlist_movies = account.watchlist(libtype="movie")
